@@ -6,3 +6,7 @@ something else.  But constaints can be a useful thing.  So in the sprit of _stop
 project has one constraint.  One week, one project.
 
 Got a good idea for a one week app?  File and issue and use the `idea` tag.
+
+## Challenge 1: [Cli Calculator](./src/CalCli/README.md)
+
+Parse, compute and return.  A cli calculator.
