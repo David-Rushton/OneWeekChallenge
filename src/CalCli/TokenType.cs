@@ -3,9 +3,19 @@ using System;
 
 namespace CalCli
 {
+    // TODO: Add Parentheses
     public enum TokenType
     {
         Number,
-        Operator
+        PlusOperator,
+        MinusOperator,
+        DivideOperator,
+        ModuloOperator,
+        MultiplyOperator,
+        EqualsOperator,
+        LeftParenthesis,
+        RightParenthesis,
+        Whitespace,
+        Unsupported
     }
 }
