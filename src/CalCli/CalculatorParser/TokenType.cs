@@ -1,7 +1,7 @@
 using System;
 
 
-namespace CalCli
+namespace CalCli.CalculatorParser
 {
     // TODO: Add Parentheses
     public enum TokenType

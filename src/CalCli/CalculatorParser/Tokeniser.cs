@@ -4,12 +4,10 @@ using System.Collections.Generic;
 using System.IO;
 
 
-namespace CalCli
+namespace CalCli.CalculatorParser
 {
     public class Tokeniser
     {
-        readonly List<Token> _tokens = new();
-
         readonly Dictionary<char, TokenType> _map = new ()
         {
             ['('] = TokenType.LeftParenthesis,
@@ -23,11 +21,11 @@ namespace CalCli
         };
 
 
-        public List<Token> Invoke(string[] input) => Invoke(new StringReader(string.Join(' ', input)));
+        public IEnumerable<Token> Invoke(string[] input) => Invoke(new StringReader(string.Join(' ', input)));
 
-        public List<Token> Invoke(string input) => Invoke(new StringReader(input));
+        public IEnumerable<Token> Invoke(string input) => Invoke(new StringReader(input));
 
-        public List<Token> Invoke(StringReader input)
+        public IEnumerable<Token> Invoke(StringReader input)
         {
             var counter = 0;
             var readCharCode = -1;
@@ -42,10 +40,8 @@ namespace CalCli
                     _  => new Token(TokenType.Unsupported, ((char)input.Read()).ToString())
                 };
 
-                _tokens.Add(newToken);
+                yield return newToken;
             }
-
-            return _tokens;
 
 
             Token CreateTokenUsingMappedChar(char mappedChar)
